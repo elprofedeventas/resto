@@ -1,0 +1,19 @@
+node_modules/
+.env
+.env.local
+.env.*.local
+dist/
+build/
+.DS_Store
+.firebase/
+*.log
+
+# Claude Code config local (no versionar)
+.claude/
+
+# Vercel config local
+.vercel/
+
+# Firebase Admin service account keys (NUNCA commitear)
+service-account.json
+service-account*.json

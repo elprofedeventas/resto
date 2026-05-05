@@ -1,0 +1,196 @@
+.screen {
+  min-height: 100vh;
+  padding: var(--space-6);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.headerActions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.canvas {
+  position: relative;
+  height: 600px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background-image:
+    linear-gradient(to right, var(--border-light) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-light) 1px, transparent 1px);
+  background-size: 20px 20px;
+  overflow: auto;
+  user-select: none;
+}
+
+.canvasEmpty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.table {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  cursor: pointer;
+  font-family: var(--font-base);
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
+  padding: 0;
+}
+
+.table:not(:disabled):hover {
+  transform: scale(1.04);
+  box-shadow: var(--shadow-sm);
+}
+
+.table:disabled {
+  cursor: not-allowed;
+}
+
+.libre {
+  background-color: var(--bg-surface);
+  border-color: var(--border-medium);
+}
+
+.young {
+  background-color: var(--success-light);
+  border-color: var(--success);
+}
+
+.mid {
+  background-color: var(--warning-light);
+  border-color: var(--warning);
+}
+
+.old {
+  background-color: var(--danger-light);
+  border-color: var(--danger);
+}
+
+.served {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+}
+
+.inactive,
+.tableDisabled {
+  background-color: var(--bg-app);
+  border-color: var(--border-light);
+  opacity: 0.5;
+}
+
+.tableNumber {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.tableSubtitle {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  margin-top: var(--space-1);
+}
+
+.tableElapsed {
+  font-size: var(--text-xs);
+  color: var(--text-primary);
+  margin-top: var(--space-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.takeoutSection {
+  margin-top: var(--space-6);
+}
+
+.takeoutSection h2 {
+  margin-bottom: var(--space-3);
+}
+
+.takeoutList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-3);
+}
+
+.takeoutCard {
+  cursor: pointer;
+  transition: border-color 120ms ease;
+}
+
+.takeoutCard:hover {
+  border-color: var(--primary);
+}
+
+.takeoutHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-2);
+}
+
+.takeoutLabel {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+}
+
+.takeoutNumber {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.muted {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+.error {
+  color: var(--danger);
+  font-size: var(--text-sm);
+  margin: 0 0 var(--space-3);
+}

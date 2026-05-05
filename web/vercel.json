@@ -1,0 +1,9 @@
+{
+  "framework": "vite",
+  "crons": [
+    {
+      "path": "/api/cron/archive-old-orders",
+      "schedule": "0 3 1 * *"
+    }
+  ]
+}

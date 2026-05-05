@@ -1,0 +1,54 @@
+/* RESTO — estilos globales
+   Aplicados a nivel documento. Los componentes usan CSS Modules. */
+
+html {
+  font-family: var(--font-base);
+  font-size: 16px;
+  color: var(--text-primary);
+  background-color: var(--bg-app);
+}
+
+body {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-regular);
+}
+
+h1 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+h4,
+h5,
+h6 {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+}
+
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+::selection {
+  background-color: var(--primary-light);
+  color: var(--text-primary);
+}

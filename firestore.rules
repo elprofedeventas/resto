@@ -1,0 +1,18 @@
+rules_version = '2';
+
+// RESTO — reglas de Firestore
+//
+// Estado: deny-all desde cliente.
+//
+// El cliente NUNCA escribe ni lee Firestore directo. Toda operación pasa por
+// una Vercel Function que usa Firebase Admin SDK (que bypasea estas reglas).
+// Por eso las reglas son la red de seguridad: si una credencial de cliente
+// se filtra, los datos siguen protegidos.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

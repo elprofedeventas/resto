@@ -1,0 +1,222 @@
+.screen {
+  min-height: 100vh;
+  padding: var(--space-6);
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--text-xs);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggleRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.itemRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: var(--text-base);
+}
+
+.itemRow:last-child {
+  border-bottom: none;
+}
+
+.itemPrice {
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.paymentList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.paymentRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: var(--space-2);
+  align-items: end;
+}
+
+@media (max-width: 800px) {
+  .paymentRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.paymentActions {
+  display: flex;
+  gap: var(--space-1);
+  align-items: end;
+}
+
+.totalsCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.totalsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.totalLine {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+}
+
+.totalMain {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-light);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.missing {
+  color: var(--danger);
+  font-weight: var(--font-weight-medium);
+}
+
+.change {
+  color: var(--success);
+  font-weight: var(--font-weight-medium);
+}
+
+.bottomActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-3);
+}
+
+.muted {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+.error {
+  color: var(--danger);
+  font-size: var(--text-sm);
+  margin: 0 0 var(--space-3);
+}
+
+/* === Recibo === */
+
+.receipt {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.receiptHeader {
+  text-align: center;
+  border-bottom: 1px dashed var(--border-medium);
+  padding-bottom: var(--space-3);
+}
+
+.receiptItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.receiptItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  gap: var(--space-3);
+}
+
+.receiptTotals {
+  border-top: 1px dashed var(--border-medium);
+  padding-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.totalLineMain {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border-light);
+}
+
+.receiptPayments {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  border-top: 1px dashed var(--border-medium);
+  padding-top: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.receiptPayment {
+  display: flex;
+  justify-content: space-between;
+}

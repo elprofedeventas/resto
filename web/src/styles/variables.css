@@ -1,0 +1,75 @@
+/* RESTO — variables de diseño
+   Las definiciones de paleta y tipografía siguen las secciones 7.2 y 7.3 de RESTO.md.
+   Las escalas de espaciado, radio y sombras son agregados auxiliares para
+   mantener consistencia entre componentes. */
+
+:root {
+  /* === Tipografía === */
+  --font-base: 'Inter', -apple-system, sans-serif;
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-lg:   18px;
+  --text-xl:   22px;
+  --text-2xl:  28px;
+
+  /* === Paleta === */
+
+  /* Fondos */
+  --bg-app:     #FAFAF7;
+  --bg-surface: #FFFFFF;
+  --bg-active:  #EFF6FF;
+
+  /* Texto */
+  --text-primary:   #1A1F2E;
+  --text-secondary: #6B7280;
+  --text-disabled:  #9CA3AF;
+
+  /* Bordes */
+  --border-light:  #E5E7EB;
+  --border-medium: #D1D5DB;
+
+  /* Color primario (acción) */
+  --primary:       #1E40AF;
+  --primary-hover: #1E3A8A;
+  --primary-light: #DBEAFE;
+
+  /* Estados */
+  --success:       #059669;
+  --warning:       #D97706;
+  --danger:        #DC2626;
+  --success-hover: #047857;
+  --warning-hover: #B45309;
+  --danger-hover:  #B91C1C;
+  --success-light: #D1FAE5;
+  --warning-light: #FEF3C7;
+  --danger-light:  #FEE2E2;
+
+  /* === Escalas auxiliares === */
+
+  /* Espaciado (escala de 4 px) */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Radios moderados (4–6 px), conforme a 7.1 */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Sombras suaves, conforme a 7.1 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.10), 0 4px 10px rgba(0, 0, 0, 0.05);
+}
