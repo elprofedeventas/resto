@@ -1,11 +1,10 @@
-/* RESTO — /api/orders/:id/customers
-   POST { localeId, name } → agrega un comensal a la orden.
-   El id del comensal se genera con crypto.randomUUID. */
+/* RESTO — /api/orders/:id/send-to-kitchen
+   POST { localeId } → marca todos los items con kitchenStatus 'pending' como
+                       'kitchen' y registra `sentToKitchenAt`. */
 
-import '../../../_lib/loadEnv.js';
-import crypto from 'node:crypto';
-import { getDb } from '../../../_lib/firebaseAdmin.js';
-import { getLocaleId, requireSession } from '../../../_lib/requireSession.js';
+import '../_lib/loadEnv.js';
+import { getDb } from '../_lib/firebaseAdmin.js';
+import { getLocaleId, requireSession } from '../_lib/requireSession.js';
 
 const ROLES_PERMITTED = ['owner', 'manager', 'waiter'];
 
@@ -25,11 +24,6 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'ID inválido' });
   }
 
-  const { name } = req.body || {};
-  if (typeof name !== 'string' || !name.trim()) {
-    return res.status(400).json({ error: 'Nombre del comensal obligatorio.' });
-  }
-
   const db = getDb();
   const orderRef = db
     .collection('restaurants').doc(session.restaurantId)
@@ -44,27 +38,35 @@ export default async function handler(req, res) {
       if (order.status !== 'open') {
         throw new Error('La orden no está abierta.');
       }
-
-      const customers = Array.isArray(order.customers)
-        ? order.customers.slice()
-        : [];
-      const newCustomer = {
-        id: crypto.randomUUID(),
-        name: name.trim()
-      };
-      customers.push(newCustomer);
-      tx.update(orderRef, { customers });
-      return { customer: newCustomer, customers };
+      const items = Array.isArray(order.items) ? order.items : [];
+      const now = Date.now();
+      let sent = 0;
+      const newItems = items.map((it) => {
+        if (it.kitchenStatus === 'pending') {
+          sent += 1;
+          return { ...it, kitchenStatus: 'kitchen', sentToKitchenAt: now };
+        }
+        return it;
+      });
+      if (sent === 0) {
+        throw new Error('No hay items pendientes de enviar.');
+      }
+      tx.update(orderRef, { items: newItems });
+      return { items: newItems, sent };
     });
 
-    return res.status(201).json(result);
+    return res.status(200).json(result);
   } catch (error) {
-    const known = ['Orden no encontrada', 'La orden no está abierta.'];
+    const known = [
+      'Orden no encontrada',
+      'La orden no está abierta.',
+      'No hay items pendientes de enviar.'
+    ];
     if (known.includes(error.message)) {
       const code = error.message === 'Orden no encontrada' ? 404 : 400;
       return res.status(code).json({ error: error.message });
     }
-    console.error('Error en POST /api/orders/[id]/customers:', error);
+    console.error('Error en POST /api/orders/[id]/send-to-kitchen:', error);
     return res.status(500).json({ error: 'Error interno del servidor.' });
   }
 }

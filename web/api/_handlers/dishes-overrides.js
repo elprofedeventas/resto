@@ -5,9 +5,9 @@
      { localeId, price: null } → elimina override (vuelve al basePrice)
    Solo permitido si restaurant.settings.pricePerLocaleEnabled === true. */
 
-import '../../_lib/loadEnv.js';
-import { getDb } from '../../_lib/firebaseAdmin.js';
-import { requireSession } from '../../_lib/requireSession.js';
+import '../_lib/loadEnv.js';
+import { getDb } from '../_lib/firebaseAdmin.js';
+import { requireSession } from '../_lib/requireSession.js';
 
 export default async function handler(req, res) {
   const session = await requireSession(req, res, { role: 'owner' });

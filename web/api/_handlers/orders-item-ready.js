@@ -4,10 +4,10 @@
    status 'served'.
    Permisos: owner, manager, cook, bar. */
 
-import '../../../../_lib/loadEnv.js';
-import { getDb } from '../../../../_lib/firebaseAdmin.js';
-import { getLocaleId, requireSession } from '../../../../_lib/requireSession.js';
-import { computeStatus } from '../../../../_lib/orderStatus.js';
+import '../_lib/loadEnv.js';
+import { getDb } from '../_lib/firebaseAdmin.js';
+import { getLocaleId, requireSession } from '../_lib/requireSession.js';
+import { computeStatus } from '../_lib/orderStatus.js';
 
 const ROLES_PERMITTED = ['owner', 'manager', 'cook', 'bar'];
 

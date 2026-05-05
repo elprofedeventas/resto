@@ -2,10 +2,10 @@
    GET ?localeId=X → detalle de un turno (abierto o cerrado).
                      Si está abierto, recalcula totales en vivo. */
 
-import '../../_lib/loadEnv.js';
-import { getDb } from '../../_lib/firebaseAdmin.js';
-import { getLocaleId, requireSession } from '../../_lib/requireSession.js';
-import { computeShiftTotals } from '../../_lib/shiftTotals.js';
+import '../_lib/loadEnv.js';
+import { getDb } from '../_lib/firebaseAdmin.js';
+import { getLocaleId, requireSession } from '../_lib/requireSession.js';
+import { computeShiftTotals } from '../_lib/shiftTotals.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {

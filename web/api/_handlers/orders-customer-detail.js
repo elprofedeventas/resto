@@ -2,9 +2,9 @@
    DELETE ?localeId=X → quita un comensal. Los items que tenía asignados
    se desasignan (customerId = null), no se borran. */
 
-import '../../../_lib/loadEnv.js';
-import { getDb } from '../../../_lib/firebaseAdmin.js';
-import { getLocaleId, requireSession } from '../../../_lib/requireSession.js';
+import '../_lib/loadEnv.js';
+import { getDb } from '../_lib/firebaseAdmin.js';
+import { getLocaleId, requireSession } from '../_lib/requireSession.js';
 
 const ROLES_PERMITTED = ['owner', 'manager', 'waiter'];
 

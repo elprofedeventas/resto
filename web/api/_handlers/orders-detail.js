@@ -1,9 +1,9 @@
 /* RESTO — /api/orders/:id
    GET ?localeId=X → cualquier rol logueado del local. Detalle de la orden. */
 
-import '../../_lib/loadEnv.js';
-import { getDb } from '../../_lib/firebaseAdmin.js';
-import { getLocaleId, requireSession } from '../../_lib/requireSession.js';
+import '../_lib/loadEnv.js';
+import { getDb } from '../_lib/firebaseAdmin.js';
+import { getLocaleId, requireSession } from '../_lib/requireSession.js';
 
 function sanitizeOrder(doc) {
   const data = doc.data();

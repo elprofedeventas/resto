@@ -10,10 +10,10 @@
    Crea un doc en `sales/` con snapshot completo. La orden queda con
    status='closed', saleId, closedAt. Si era mesa, libera la mesa. */
 
-import '../../_lib/loadEnv.js';
+import '../_lib/loadEnv.js';
 import crypto from 'node:crypto';
-import { getDb } from '../../_lib/firebaseAdmin.js';
-import { getLocaleId, requireSession } from '../../_lib/requireSession.js';
+import { getDb } from '../_lib/firebaseAdmin.js';
+import { getLocaleId, requireSession } from '../_lib/requireSession.js';
 
 const ROLES_PERMITTED = ['owner', 'manager', 'cashier'];
 const VALID_PAYMENT_METHODS = ['cash', 'card', 'transfer', 'app'];

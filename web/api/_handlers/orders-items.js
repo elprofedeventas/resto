@@ -7,11 +7,11 @@
          → asigna o desasigna el item a un comensal de la orden. Si
          customerId es null, el item queda como "general". */
 
-import '../../_lib/loadEnv.js';
+import '../_lib/loadEnv.js';
 import crypto from 'node:crypto';
-import { getDb } from '../../_lib/firebaseAdmin.js';
-import { getLocaleId, requireSession } from '../../_lib/requireSession.js';
-import { computeStatus } from '../../_lib/orderStatus.js';
+import { getDb } from '../_lib/firebaseAdmin.js';
+import { getLocaleId, requireSession } from '../_lib/requireSession.js';
+import { computeStatus } from '../_lib/orderStatus.js';
 
 const ROLES_PERMITTED = ['owner', 'manager', 'waiter'];
 

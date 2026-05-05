@@ -3,10 +3,10 @@
         → cierra el turno. Calcula totales finales y diferencia entre
         efectivo declarado y teórico. Roles: cashier, manager, owner. */
 
-import '../../_lib/loadEnv.js';
-import { getDb } from '../../_lib/firebaseAdmin.js';
-import { getLocaleId, requireSession } from '../../_lib/requireSession.js';
-import { computeShiftTotals } from '../../_lib/shiftTotals.js';
+import '../_lib/loadEnv.js';
+import { getDb } from '../_lib/firebaseAdmin.js';
+import { getLocaleId, requireSession } from '../_lib/requireSession.js';
+import { computeShiftTotals } from '../_lib/shiftTotals.js';
 
 const ROLES_PERMITTED = ['owner', 'manager', 'cashier'];
 

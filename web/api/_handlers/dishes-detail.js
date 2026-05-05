@@ -2,9 +2,9 @@
    GET   → cualquier rol logueado. Detalle con receta expandida y overrides.
    PATCH → solo owner. Edita campos base del plato. */
 
-import '../../_lib/loadEnv.js';
-import { getDb } from '../../_lib/firebaseAdmin.js';
-import { requireSession } from '../../_lib/requireSession.js';
+import '../_lib/loadEnv.js';
+import { getDb } from '../_lib/firebaseAdmin.js';
+import { requireSession } from '../_lib/requireSession.js';
 
 const VALID_STATIONS = ['hot', 'cold', 'bar'];
 

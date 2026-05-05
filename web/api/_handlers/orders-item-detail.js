@@ -6,10 +6,10 @@
      - Recalcula subtotal y status (puede pasar a 'served' si era el último
        no-ready). */
 
-import '../../../../_lib/loadEnv.js';
-import { getDb } from '../../../../_lib/firebaseAdmin.js';
-import { getLocaleId, requireSession } from '../../../../_lib/requireSession.js';
-import { computeStatus } from '../../../../_lib/orderStatus.js';
+import '../_lib/loadEnv.js';
+import { getDb } from '../_lib/firebaseAdmin.js';
+import { getLocaleId, requireSession } from '../_lib/requireSession.js';
+import { computeStatus } from '../_lib/orderStatus.js';
 
 const ROLES_PERMITTED = ['owner', 'manager', 'waiter'];
 

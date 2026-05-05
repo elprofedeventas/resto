@@ -5,9 +5,9 @@
      - waiter: solo si es el waiter que abrió la orden.
    Si la orden era de mesa, libera la mesa (activeOrderId = null). */
 
-import '../../_lib/loadEnv.js';
-import { getDb } from '../../_lib/firebaseAdmin.js';
-import { getLocaleId, requireSession } from '../../_lib/requireSession.js';
+import '../_lib/loadEnv.js';
+import { getDb } from '../_lib/firebaseAdmin.js';
+import { getLocaleId, requireSession } from '../_lib/requireSession.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
