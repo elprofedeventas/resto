@@ -109,8 +109,22 @@ function matchPattern(pattern, segments) {
   return params;
 }
 
+function pathSegmentsFromRequest(req) {
+  const raw = req.url || '/';
+  const host = req.headers.host || 'localhost';
+  let pathname;
+  try {
+    pathname = new URL(raw, `http://${host}`).pathname;
+  } catch {
+    pathname = raw.split('?')[0];
+  }
+  const all = pathname.split('/').filter(Boolean);
+  if (all[0] === 'api') all.shift();
+  return all;
+}
+
 export default async function handler(req, res) {
-  const slug = Array.isArray(req.query.slug) ? req.query.slug : [];
+  const slug = pathSegmentsFromRequest(req);
 
   for (const route of ROUTES) {
     const params = matchPattern(route.pattern, slug);
@@ -119,5 +133,5 @@ export default async function handler(req, res) {
     return route.handler(req, res);
   }
 
-  return res.status(404).json({ error: 'Endpoint no encontrado' });
+  return res.status(404).json({ error: 'Endpoint no encontrado', path: slug });
 }
