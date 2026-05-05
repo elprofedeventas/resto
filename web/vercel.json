@@ -1,5 +1,8 @@
 {
   "framework": "vite",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/router" }
+  ],
   "crons": [
     {
       "path": "/api/cron/archive-old-orders",
